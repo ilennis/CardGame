@@ -110,22 +110,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Minicharacter
+      name: Minicharacter_0
       rect:
         serializedVersion: 2
         x: 766
         y: 272
-        width: 394
+        width: 90
         height: 134
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dffcd113394e2834e8a0c4ee9a591103
-      internalID: -35844107
+      spriteID: 7a9c6c96cfc831e4b99070cd98e2503c
+      internalID: -378483255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minicharacter_1
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 272
+        width: 73
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe883e3f299802b48a523605082cd303
+      internalID: -352964726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minicharacter_2
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 272
+        width: 70
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaea9cff7c8981946a28a4bfba983694
+      internalID: 475671956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minicharacter_3
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 272
+        width: 84
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a34cff7a388f12148a00fe0ea37da508
+      internalID: -417656789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Minicharacter_4
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 272
+        width: 76
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 395e28170de1ca24b858fa85e90fc0c7
+      internalID: -60329042
       vertices: []
       indices: 
       edges: []
@@ -141,8 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Minicharacter: -35844107
+      Minicharacter_0: -378483255
       Minicharacter_1: -352964726
+      Minicharacter_2: 475671956
+      Minicharacter_3: -417656789
+      Minicharacter_4: -60329042
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

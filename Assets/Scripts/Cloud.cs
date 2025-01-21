@@ -8,16 +8,19 @@ public class Cloud : MonoBehaviour
     [SerializeField]
     private float maxSpeed;
 
+    private float speed;
+
     private void Start()
     {
-        float x = transform.position.x;
+        float x = transform.localPosition.x;
         float y = Random.Range(0.0f, 4.0f);
-        transform.position = new Vector2(x, y);
+        transform.localPosition = new Vector2(x, y);
+
+        speed = Random.Range(minSpeed, maxSpeed);
     }
 
     private void Update()
     {
-        var speed = Random.Range(minSpeed, maxSpeed);
         transform.Translate(speed * Time.deltaTime * Vector2.left);
     }
 }

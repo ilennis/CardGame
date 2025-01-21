@@ -22,18 +22,19 @@ public class CloudSpawner : MonoBehaviour
     private void Initialize()
     {
         float x = -10.0f;
-        float y = Random.Range(transform.position.y, transform.position.y + Random.Range(0.0f, 4.0f));
         while (x < 10.0f)
         {
-            Spawn(new Vector2(x, y));
-            x += Random.Range(minDelay, maxDelay);
+            Spawn(new Vector2(x, transform.position.y));
+
+            float speed = Random.Range(1.0f, 2.0f);
+            x += Random.Range(minDelay * speed, maxDelay * speed);
         }
     }
 
     private void Spawn(Vector2 position)
     {
         int index = Random.Range(0, clouds.Count);
-        Instantiate(clouds[index], position, Quaternion.identity);
+        Instantiate(clouds[index], position, Quaternion.identity, transform);
     }
 
     private IEnumerator Spawning()
