@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 
 public enum AudioType
@@ -63,8 +64,10 @@ public class AudioManager : MonoBehaviour
         switch (type)
         {
             case AudioType.Music:
-                audioSources[(int)type].clip = clip;
-                audioSources[(int)type].Play();
+                int index = (int)type;
+                audioSources[index].clip = clip;
+                audioSources[index].DOFade(VOLUMES[index], 2.0f).From(0.0f);
+                audioSources[index].Play();
                 break;
             case AudioType.SoundFX:
                 audioSources[(int)type].PlayOneShot(clip);
@@ -75,9 +78,23 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void Play_MusicFX()
+    public void StopMusic()
     {
-        // TODO: 크로스 페이드 구현
+        var music = audioSources[(int)AudioType.Music];
+        var musicFX = audioSources[(int)AudioType.MusicFX];
+
+        musicFX.clip = music.clip;
+        musicFX.time = music.time;
+        musicFX.volume = music.volume;
+        musicFX.Play();
+        musicFX.DOFade(0.0f, 2.0f).OnComplete(() =>
+        {
+            musicFX.Stop();
+            musicFX.clip = null;
+        });
+
+        music.Stop();
+        music.clip = null;
     }
 
     private AudioType GetType(string key)
