@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using JetBrains.Annotations;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,17 +13,18 @@ public class GameManager : MonoBehaviour
     public Text timeTxt;
     public Text warning;
 
-    public Text tryCount;
-    public Text successCount;
+    public Text attemptsCountTxt;
+    public Text successCountTxt;
 
     public Card firstCard;
     public Card secondCard;
 
     public int cardCount = 0;
 
-    int attemptsCount = 0;
-    int victoryCount = 0;
-
+    int attempts = 0;
+    int success = 0;
+    int totalattempts = 0;
+    int totalsuccess = 0;
     float time = 60.0f;
 
     public List<Card> cards = new List<Card>();
@@ -58,11 +60,11 @@ public class GameManager : MonoBehaviour
 
     public void Matched() // 카드 판별 시스템
     {
-        attemptsCount++;
+        attempts++;
 
         if(firstCard.index == secondCard.index)
         {
-            victoryCount++;
+            success++;
 
             //리스트 삭제    
             cards.Remove(firstCard);
@@ -85,6 +87,16 @@ public class GameManager : MonoBehaviour
             firstCard.CloseCard();
             secondCard.CloseCard();
         }
+    }
+    public void AddSuccess(int victoryCount)
+    {
+        totalattempts += victoryCount;
+        successCountTxt.text = totalattempts.ToString();
+    }
+    public void AddAttempts(int attemptscount)
+    {
+        totalattempts += attemptscount;
+        attemptsCountTxt.text = totalattempts.ToString();
     }
     
 }
