@@ -1,7 +1,5 @@
 using System.Collections;
-using DG.Tweening;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MiniCharacters : MonoBehaviour
 {
@@ -42,12 +40,6 @@ public class MiniCharacters : MonoBehaviour
 
             children[i].AddForce(200.0f * Vector2.up);
         }
-
-        DOVirtual.DelayedCall(0.8f, () =>
-        {
-
-            SceneManager.LoadScene(1);
-        });
     }
 
     private IEnumerator Jumping()

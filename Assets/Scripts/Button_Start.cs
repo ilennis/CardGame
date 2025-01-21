@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Button_Start : MonoBehaviour
@@ -15,6 +16,10 @@ public class Button_Start : MonoBehaviour
         AudioManager.Instance.StopMusic();
 
         DOVirtual.DelayedCall(0.66f, () => AudioManager.Instance.Play("SoundFX_StartButton"));
-        DOVirtual.DelayedCall(0.8f, () => GetComponent<Image>().sprite = pressedSprite);
+        DOVirtual.DelayedCall(0.8f, () =>
+        {
+            GetComponent<Image>().sprite = pressedSprite;
+            SceneManager.LoadScene(1);
+        });
     }
 }
