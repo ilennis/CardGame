@@ -80,13 +80,24 @@ public class GameManager : MonoBehaviour
             {
                 SceneManager.LoadScene(2);
             }
+            else
+            {
+                Card_Click_Status(false);
+
+                Invoke("Card_click_ON", 0.5f);
+
+            }
         }
         //틀리면 카드 다시 Close
         else
         {
             firstCard.CloseCard();
             secondCard.CloseCard();
+
+            Card_Click_Status(false);
+            Invoke("Card_click_ON", 0.5f);
         }
+
     }
     public void AddSuccess(int victoryCount)
     {
@@ -98,5 +109,16 @@ public class GameManager : MonoBehaviour
         totalattempts += attemptscount;
         attemptsCountTxt.text = totalattempts.ToString();
     }
-    
+    void Card_click_ON()
+    {
+        Card_Click_Status(true);
+    }
+    void Card_Click_Status(bool GET_status)
+    {
+        for (int i = 0; i < cards.Count; i++)
+        {
+            cards[i].cardStatus = GET_status;
+        }
+    }
+
 }

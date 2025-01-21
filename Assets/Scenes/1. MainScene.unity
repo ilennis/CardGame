@@ -1001,6 +1001,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 2417893139395627692, guid: 324fff19ea0367343ba809d5c42d7844, type: 3}
+  cards: {fileID: 944275182}
+  gameManager: {fileID: 1309263306}
 --- !u!4 &581849746
 Transform:
   m_ObjectHideFlags: 0
@@ -1713,6 +1715,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeTxt: {fileID: 344504936}
   warning: {fileID: 1561437761}
+  attemptsCountTxt: {fileID: 0}
+  successCountTxt: {fileID: 0}
+  firstCard: {fileID: 0}
+  secondCard: {fileID: 0}
+  cardCount: 0
+  cards: []
 --- !u!1 &1319849823
 GameObject:
   m_ObjectHideFlags: 0
