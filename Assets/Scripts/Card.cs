@@ -45,13 +45,9 @@ public class Card : MonoBehaviour
     {
         // 점수 추가는 여기 위에 해주세요
         StartCoroutine(DelayDestroy(0.5f));
-        Invoke("DestroyCardInvoke", 1.0f);
+      
     }
-    public void DestroyCardInvoke()
-    {
-        
-        Destroy(gameObject);
-    }
+    
     IEnumerator DelayDestroy(float delay)
     {
         yield return new WaitForSeconds(delay);
