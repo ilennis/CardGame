@@ -8,20 +8,24 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager Instance;
+
     public Text timeTxt;
     public Text warning;
 
-    public Text trycount;
-    public Text successcount;
+    public Text tryCount;
+    public Text successCount;
 
     public Card firstCard;
     public Card secondCard;
 
     public int cardCount = 0;
 
-    int attemptscount = 0;
-    int victorycount = 0;
+    int attemptsCount = 0;
+    int victoryCount = 0;
+
     float time = 60.0f;
+
+    public List<Card> cards = new List<Card>();
 
 
     private void Awake()
@@ -54,13 +58,22 @@ public class GameManager : MonoBehaviour
 
     public void Matched() // 카드 판별 시스템
     {
-        attemptscount++;
+        attemptsCount++;
+
         if(firstCard.index == secondCard.index)
         {
+            victoryCount++;
+
+            //리스트 삭제    
+            cards.Remove(firstCard);
+            cards.Remove(secondCard);
+
+            //카드 삭제
             firstCard.DestroyCard();
             secondCard.DestroyCard();
-            victorycount++;
+            
             cardCount -= 2;
+
             if (cardCount == 0)
             {
                 SceneManager.LoadScene(2);

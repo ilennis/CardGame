@@ -8,6 +8,9 @@ public class Card : MonoBehaviour
     public GameObject back;
     public Animator anim;
     SpriteRenderer front;
+
+    public bool cardStatus = true;
+
     public void Awake()
     {
         front = GetComponent<SpriteRenderer> ();
@@ -21,6 +24,8 @@ public class Card : MonoBehaviour
     }
     public void OpenCard()
     {
+
+        if (!cardStatus) return;
         
         anim.SetBool("isOpen", true);
         back.SetActive(false);
