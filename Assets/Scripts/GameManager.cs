@@ -10,10 +10,13 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public Text timeTxt;
     public Text warning;
-
+    public Text trycount;
+    public Text successcount;
     public Card firstCard;
     public Card secondCard;
 
+    int attemptscount = 0;
+    int victorycount = 0;
     float time = 30.0f;
 
 
@@ -46,11 +49,12 @@ public class GameManager : MonoBehaviour
 
     public void Matched() // 카드 판별 시스템
     {
-        // 맞으면 카드 삭제
+        attemptscount++;
         if(firstCard.index == secondCard.index)
         {
             firstCard.DestroyCard();
             secondCard.DestroyCard();
+            victorycount++;
         }
         //틀리면 카드 다시 Close
         else
