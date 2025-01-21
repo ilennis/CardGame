@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     int success = 0;
     int totalattempts = 0;
     int totalsuccess = 0;
-    float time = 60.0f;
+    float time = 30.0f;
 
     public List<Card> cards = new List<Card>();
 
@@ -41,20 +41,22 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time -= Time.deltaTime;
-        timeTxt.text = time.ToString("N2");
-
-        //시간이 10초 남았을 때
-        if (time <= 10.0f)
+        if (time >= 0)
         {
-            warning.gameObject.SetActive(true);
-        }
+            time -= Time.deltaTime;
+            timeTxt.text = time.ToString("N2");
+            //시간이 10초 남았을 때
+            if (time <= 10.0f)
+            {
+                warning.gameObject.SetActive(true);
+            }
 
-        //시간이 다 됐을 때
-        if (time <= 0f)
-        {
-            time = 0;
-            SceneManager.LoadScene(3);
+            //시간이 다 됐을 때
+            if (time <= 0f)
+            {
+                time = 0;
+                SceneManager.LoadScene(3);
+            }
         }
     }
 
