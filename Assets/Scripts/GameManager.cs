@@ -10,14 +10,18 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public Text timeTxt;
     public Text warning;
+
     public Text trycount;
     public Text successcount;
+
     public Card firstCard;
     public Card secondCard;
 
+    public int cardCount = 0;
+
     int attemptscount = 0;
     int victorycount = 0;
-    float time = 30.0f;
+    float time = 60.0f;
 
 
     private void Awake()
@@ -34,8 +38,8 @@ public class GameManager : MonoBehaviour
         time -= Time.deltaTime;
         timeTxt.text = time.ToString("N2");
 
-        //시간이 반절정도 갔을 때
-        if (time <= 15.0f)
+        //시간이 10초 남았을 때
+        if (time <= 10.0f)
         {
             warning.gameObject.SetActive(true);
         }
@@ -43,7 +47,8 @@ public class GameManager : MonoBehaviour
         //시간이 다 됐을 때
         if (time <= 0f)
         {
-
+            time = 0;
+            SceneManager.LoadScene(3);
         }
     }
 
@@ -55,6 +60,11 @@ public class GameManager : MonoBehaviour
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             victorycount++;
+            cardCount -= 2;
+            if (cardCount == 0)
+            {
+                SceneManager.LoadScene(2);
+            }
         }
         //틀리면 카드 다시 Close
         else
