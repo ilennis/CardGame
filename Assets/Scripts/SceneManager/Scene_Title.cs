@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Scene_Title : MonoBehaviour
+public class Scene_Title : Scene_Base
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void Initialize()
     {
-        
+        base.Initialize();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        AudioManager.Instance.Play(AudioType.Music, "BGM_Title");
     }
 }
