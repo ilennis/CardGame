@@ -50,7 +50,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void Play(AudioType audioType, string key)
+    public void Play(string key)
     {
         var clip = Resources.Load<AudioClip>($"Audio/{key}");
         if (clip == null)
@@ -59,21 +59,19 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        var audioSource = audioSources[(int)audioType];
-        switch (audioType)
+        var type = GetType(key);
+        var audioSource = audioSources[(int)type];
+        switch (type)
         {
             case AudioType.Music:
                 audioSource.clip = clip;
                 audioSource.Play();
                 break;
-            case AudioType.MusicFX:
-                Play_MusicFX();
-                break;
             case AudioType.SoundFX:
                 audioSource.PlayOneShot(clip);
                 break;
             default:
-                Debug.LogError($"Failed to Play({audioType})");
+                Debug.LogError($"Failed to Play({type})");
                 break;
         }
     }
@@ -81,5 +79,16 @@ public class AudioManager : MonoBehaviour
     private void Play_MusicFX()
     {
 
+    }
+
+    private AudioType GetType(string key)
+    {
+        var type = key[..key.IndexOf('_')];
+        if (Enum.TryParse(typeof(AudioType), type, out var audioType))
+        {
+            return AudioType.Count;
+        }
+
+        return (AudioType)audioType;
     }
 }

@@ -7,6 +7,6 @@ public class Scene_Title : Scene_Base
 
     private void Start()
     {
-        AudioManager.Instance.Play(AudioType.Music, "BGM_Title");
+        AudioManager.Instance.Play("Music_Title");
     }
 }
