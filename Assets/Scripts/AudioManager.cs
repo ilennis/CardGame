@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
         0.2f    // SoundFX
     };
 
-    public static AudioManager Instance;
+    public static AudioManager Instance { get; private set; }
 
     private readonly AudioSource[] audioSources = new AudioSource[(int)AudioType.Count];
 
@@ -60,15 +60,14 @@ public class AudioManager : MonoBehaviour
         }
 
         var type = GetType(key);
-        var audioSource = audioSources[(int)type];
         switch (type)
         {
             case AudioType.Music:
-                audioSource.clip = clip;
-                audioSource.Play();
+                audioSources[(int)type].clip = clip;
+                audioSources[(int)type].Play();
                 break;
             case AudioType.SoundFX:
-                audioSource.PlayOneShot(clip);
+                audioSources[(int)type].PlayOneShot(clip);
                 break;
             default:
                 Debug.LogError($"Failed to Play({type})");
@@ -84,11 +83,11 @@ public class AudioManager : MonoBehaviour
     private AudioType GetType(string key)
     {
         var type = key[..key.IndexOf('_')];
-        if (Enum.TryParse(typeof(AudioType), type, out var audioType) == false)
+        if (Enum.TryParse(typeof(AudioType), type, out var audioType))
         {
-            return AudioType.Count;
+            return (AudioType)audioType;
         }
 
-        return (AudioType)audioType;
+        return AudioType.Count;
     }
 }
