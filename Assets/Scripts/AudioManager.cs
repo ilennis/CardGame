@@ -78,13 +78,13 @@ public class AudioManager : MonoBehaviour
 
     private void Play_MusicFX()
     {
-
+        // TODO: 크로스 페이드 구현
     }
 
     private AudioType GetType(string key)
     {
         var type = key[..key.IndexOf('_')];
-        if (Enum.TryParse(typeof(AudioType), type, out var audioType))
+        if (Enum.TryParse(typeof(AudioType), type, out var audioType) == false)
         {
             return AudioType.Count;
         }
