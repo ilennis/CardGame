@@ -8,6 +8,7 @@ public class Card : MonoBehaviour
     public GameObject back;
     public Animator anim;
     SpriteRenderer front;
+    public int arr_index = 0;
 
     public bool cardStatus = true;
 
@@ -17,8 +18,9 @@ public class Card : MonoBehaviour
         anim = GetComponent<Animator>();
 
     }
-    public void Setting(int i)
+    public void Setting(int num, int i)
     {
+        arr_index = num;
         index = i;
         front.sprite = Resources.Load<Sprite>($"photo{index}");
     }

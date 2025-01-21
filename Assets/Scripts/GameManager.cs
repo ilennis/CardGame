@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     {
         attempts++;
 
-        if(firstCard.index == secondCard.index)
+        if((firstCard.arr_index != secondCard.arr_index) && (firstCard.index == secondCard.index))
         {
             success++;
 
