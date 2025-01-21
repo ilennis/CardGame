@@ -16,8 +16,8 @@ public class Board : MonoBehaviour
         {
             GameObject go = Instantiate(card, this.transform);
 
-            float x = (i / 4) * 2.6f -7.5f; // 사진 사이즈 맞추어서 간격 + 위치 잡아주기 x 축 
-            float y = (i % 4) * 1.9f -3.0f; // 사진 사이즈 맞추어서 간격 + 위치 잡아주기 y 축
+            float x = (i / 4) * 2.6f -7.5f; // 사진 사이즈 맞추어서 간격 + 위치 잡아주기 x 축  (로직, 카드 사이즈 + 0.1, 카드 위치)
+            float y = (i % 4) * 1.9f -3.0f; // 사진 사이즈 맞추어서 간격 + 위치 잡아주기 y 축 (로직, 카드 사이즈 + 0.1, 카드 위치)
 
             go.transform.position = new Vector2(x, y);
             go.GetComponent<Card>().Setting(arr[i]);
