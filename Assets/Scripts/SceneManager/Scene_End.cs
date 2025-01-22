@@ -1,11 +1,28 @@
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
+using UnityEngine;
+using JetBrains.Annotations;
+using UnityEditor.TerrainTools;
 public class Scene_End : Scene_Base
 {
-    public Text TryCount;
-    public Text attemptsCount;
+    public int attempts;
+    public int success;
+    public Text TryCountTxt;
+    public Text SuccessCountTxt;
+    public void Start()
+    {
+        attempts = GameManager.Instance.Attempts;
+        success = GameManager.Instance.Success;
+        TryCountTxt.text = attempts.ToString();
+        SuccessCountTxt.text = success.ToString();
+    }
     protected override void Initialize()
     {
         base.Initialize();
     }
+    
+ 
+
+
 }
