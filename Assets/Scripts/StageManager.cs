@@ -1,4 +1,11 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public enum StageType
+{
+    Easy,
+    Hard
+}
 
 public class StageManager : MonoBehaviour
 {
@@ -6,12 +13,7 @@ public class StageManager : MonoBehaviour
 
     bool clear = false;
 
-    public enum StageType
-    {
-        Easy,
-        Hard
-    }
-
+    public StageType CurrentStage { get; private set; } = StageType.Easy;
     public static StageManager Instance { get; private set; }
 
     private void Awake()
@@ -52,7 +54,12 @@ public class StageManager : MonoBehaviour
         {
             //하드모드 게임 씬 로드
         }
+    }
 
+    public void SelectStage(StageType stage)
+    {
+        CurrentStage = stage;
+        SceneManager.LoadScene(1);
     }
 
     //이전에 클리어했나 확인

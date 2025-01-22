@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
-using DG.Tweening.Core.Easing;
 
 public class Board : MonoBehaviour
 {
@@ -11,18 +9,27 @@ public class Board : MonoBehaviour
     public GameObject start;
     public float speed = 0.2f;
 
-     
+
     public Transform cards;
     public GameManager gameManager;
     public int[] arr = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9 };
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        switch (StageManager.Instance.CurrentStage)
+        {
+            case StageType.Easy:
+                cardCount = 12;
+                break;
+            case StageType.Hard:
+                cardCount = 20;
+                break;
+        }
+
         GenerateArray();
         MakeCardCoroutine();
-        
     }
+
     void GenerateArray() // 정렬 만드는 기능
     {
         arr = new int[cardCount]; // 정렬 몇 행인지
@@ -79,8 +86,8 @@ public class Board : MonoBehaviour
             Vector2 targetPosition = new Vector2(x, y); // 이 포지션으로 이동하게 만들기
             go.GetComponent<Card>().Setting(i, arr[i]); // 카드 사진 부여
             GameManager.Instance.cardCount = arr.Length; // 카드 숫자 GameManager한테 보내기
-            
-            while(elapsedTime < speed)
+
+            while (elapsedTime < speed)
             {
                 go.transform.position = Vector3.Lerp(start.transform.position, targetPosition, elapsedTime / speed);
                 elapsedTime += Time.deltaTime;
@@ -91,6 +98,4 @@ public class Board : MonoBehaviour
         }
         yield return null;
     }
-
-
 }
