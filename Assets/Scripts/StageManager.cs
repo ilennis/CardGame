@@ -30,7 +30,8 @@ public class StageManager : MonoBehaviour
 
     public void Start()
     {
-        
+        bool a = Isclear();
+        Debug.Log(a);
     }
 
     private void Initialize()
@@ -57,7 +58,7 @@ public class StageManager : MonoBehaviour
     //이전에 클리어했나 확인
     bool Isclear()
     {
-        bool key = PlayerPrefs.HasKey("isclear");
+        bool key = PlayerPrefs.HasKey("easy"); //"easy"에 이지를 클리어했는지를 저장 
         return key;
     }
 }

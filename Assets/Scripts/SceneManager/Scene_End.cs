@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Scene_End : Scene_Base
@@ -12,6 +13,8 @@ public class Scene_End : Scene_Base
         success = GameManager.Instance.Success;
         TryCountTxt.text = attempts.ToString();
         SuccessCountTxt.text = success.ToString();
+        int count = PlayerPrefs.GetInt("easy");
+        PlayerPrefs.SetInt("easy", count+1);
     }
 
     protected override void Initialize()

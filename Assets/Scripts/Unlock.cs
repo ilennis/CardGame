@@ -22,7 +22,6 @@ public class Unlock : MonoBehaviour
 
     public void Notion_OFF()
     {
-        Debug.Log("¾Ë¸²²¨Áü");
         Panel.SetActive(false);
     }
 }
