@@ -17,7 +17,7 @@ public class Card : MonoBehaviour
         anim = GetComponent<Animator>();
 
     }
-    public void Setting(int num, int i)
+    public void Setting(int num, int i) // num = 정렬 인덱스 넘버. i = 사진 넘버
     {
         arr_index = num;
         index = i;

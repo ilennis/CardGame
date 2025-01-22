@@ -287,8 +287,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d242ea5bb297b094abfdd5ef8bb06ff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   back: {fileID: 998049694317689366}
   anim: {fileID: -8106941364294350783}
+  arr_index: 0
+  cardStatus: 1
 --- !u!95 &-8106941364294350783
 Animator:
   serializedVersion: 5
