@@ -7,7 +7,7 @@ public class Board : MonoBehaviour
     public int cardCount = 20; // 생성 카드 개수. Easy = 12, Hard = 20
     public GameObject card;
     public GameObject start;
-    public float speed = 0.2f;
+    public float speed;
 
 
     public Transform cards;
@@ -31,8 +31,8 @@ public class Board : MonoBehaviour
 
         GenerateArray();
         MakeCardCoroutine();
-    }
 
+    }
     void GenerateArray() // 정렬 만드는 기능
     {
         arr = new int[cardCount]; // 정렬 몇 행인지
@@ -86,19 +86,25 @@ public class Board : MonoBehaviour
 
             float x = (i / 4) * 2.6f - 7.5f; // 사진 사이즈 맞추어서 간격 + 위치 잡아주기 x 축  (로직, 카드 사이즈 + 0.1, 카드 위치)
             float y = (i % 4) * 1.9f - 3.0f; // 사진 사이즈 맞추어서 간격 + 위치 잡아주기 y 축 (로직, 카드 사이즈 + 0.1, 카드 위치)
+            Vector3 startPosition = go.transform.position;
             Vector2 targetPosition = new Vector2(x, y); // 이 포지션으로 이동하게 만들기
             go.GetComponent<Card>().Setting(i, arr[i]); // 카드 사진 부여
             GameManager.Instance.cardCount = arr.Length; // 카드 숫자 GameManager한테 보내기
 
-            while (elapsedTime < speed)
+            float distance = Vector2.Distance(startPosition, targetPosition);
+            while (distance > 0.01)
             {
                 go.transform.position = Vector3.Lerp(start.transform.position, targetPosition, elapsedTime / speed);
                 elapsedTime += Time.deltaTime;
+                Vector2 currentPosition = go.transform.position;
+                distance = Vector2.Distance(currentPosition, targetPosition);
+                yield return null;
+                Debug.Log("check");
             }
-
-            yield return new WaitForSeconds(0.2f);
+            Debug.Log("check2");
             go.transform.position = targetPosition;
+            
+
         }
-        yield return null;
     }
 }

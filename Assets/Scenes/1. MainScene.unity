@@ -1016,7 +1016,7 @@ MonoBehaviour:
   cardCount: 12
   card: {fileID: 2417893139395627692, guid: 324fff19ea0367343ba809d5c42d7844, type: 3}
   start: {fileID: 2124489687}
-  speed: 60
+  speed: 0.05
   cards: {fileID: 944275182}
   gameManager: {fileID: 1309263306}
   arr: 
