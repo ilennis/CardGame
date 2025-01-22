@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class StageManager : MonoBehaviour
 {
+    public GameObject UnlockPanel;
+
+    bool clear = false;
+
     public enum StageType
     {
         Easy,
@@ -15,6 +19,7 @@ public class StageManager : MonoBehaviour
         if (Instance != null)
         {
             Destroy(gameObject);
+            return;
         }
 
         Instance = this;
@@ -23,8 +28,36 @@ public class StageManager : MonoBehaviour
         Initialize();
     }
 
+    public void Start()
+    {
+        
+    }
+
     private void Initialize()
     {
 
+    }
+
+    //해금 조건을 충족했나 체크
+    public void ConditionCheck()
+    {
+        clear = Isclear();
+        //하드모드를 선택할때 해금이 불가능이라면
+        if (clear == false)
+        {
+            UnlockPanel.SetActive(true);
+        }
+        else
+        {
+            //하드모드 게임 씬 로드
+        }
+
+    }
+
+    //이전에 클리어했나 확인
+    bool Isclear()
+    {
+        bool key = PlayerPrefs.HasKey("isclear");
+        return key;
     }
 }
