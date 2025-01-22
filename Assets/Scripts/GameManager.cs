@@ -1,12 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using JetBrains.Annotations;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public bool IsDefeat { get; set; } = false;
 
     public static GameManager Instance;
 
@@ -22,15 +21,15 @@ public class GameManager : MonoBehaviour
 
     public int Attempts = 0;
     public int Success = 0;
-   
-    float time = 30.0f;
+
+    float time = 60.0f;
 
     public List<Card> cards = new List<Card>();
 
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
@@ -44,21 +43,33 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (IsDefeat)
+        {
+            return;
+        }
+
         //타이머
         if (time > 0)
         {
             time -= Time.deltaTime;
             timeTxt.text = time.ToString("N2");
             //시간이 10초 남았을 때
-            if (time <= 10.0f)
+            if (time <= 10.0f && !warning.gameObject.activeSelf)
             {
                 warning.gameObject.SetActive(true);
+
+                AudioManager.Instance.StopMusic();
+                AudioManager.Instance.Play("Music_Warning");
             }
         }
         //타이머가 끝났을떄
         else
         {
+            AudioManager.Instance.StopMusic();
+            AudioManager.Instance.Play("SoundFX_Defeat");
+
             SceneManager.LoadScene(3);
+            IsDefeat = true;
         }
     }
 
@@ -77,13 +88,16 @@ public class GameManager : MonoBehaviour
             //카드 삭제
             firstCard.DestroyCard();
             secondCard.DestroyCard();
-            
+
             cardCount -= 2;
 
             GameManager.Instance.AddSuccess();
 
             if (cardCount == 0)
             {
+                AudioManager.Instance.StopMusic();
+                AudioManager.Instance.Play("SoundFX_Victory");
+
                 SceneManager.LoadScene(2);
             }
             else
@@ -117,7 +131,7 @@ public class GameManager : MonoBehaviour
     public void AddAttempts()
     {
         Attempts++;
-       //  PlayerPrefs.SetInt("totalattempts", totalattempts);
+        //  PlayerPrefs.SetInt("totalattempts", totalattempts);
     }
 
     void Card_click_ON()
@@ -137,14 +151,17 @@ public class GameManager : MonoBehaviour
     {
         nomatch.gameObject.SetActive(false);
         match.gameObject.SetActive(true);
-        Invoke("match.gameObject.SetActive(false)", 2.5f);
+
+        AudioManager.Instance.Play("SoundFX_Success");
+        // match.gameObject.SetActive(false)
     }
 
     void NotMatchcard()
     {
         match.gameObject.SetActive(false);
         nomatch.gameObject.SetActive(true);
-        Invoke("nomatch.gameObject.SetActive(false)", 2.5f);
-    }
 
+        AudioManager.Instance.Play("SoundFX_Fail");
+        // nomatch.gameObject.SetActive(false)
+    }
 }

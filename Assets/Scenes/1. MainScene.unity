@@ -1900,8 +1900,6 @@ MonoBehaviour:
   warning: {fileID: 1561437761}
   match: {fileID: 1118052534}
   nomatch: {fileID: 750385654}
-  attemptsCountTxt: {fileID: 0}
-  successCountTxt: {fileID: 0}
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
   cardCount: 0
@@ -2330,7 +2328,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1561437760
 RectTransform:
   m_ObjectHideFlags: 0
