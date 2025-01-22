@@ -14,6 +14,8 @@ public class Board : MonoBehaviour
     public GameManager gameManager;
     public int[] arr = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9 };
 
+    public List<Card> CardList { get; private set; } = new();
+
     private void Start()
     {
         if (StageManager.Instance != null)
@@ -88,7 +90,9 @@ public class Board : MonoBehaviour
             float y = (i % 4) * 1.9f - 3.0f; // 사진 사이즈 맞추어서 간격 + 위치 잡아주기 y 축 (로직, 카드 사이즈 + 0.1, 카드 위치)
             Vector3 startPosition = go.transform.position;
             Vector2 targetPosition = new Vector2(x, y); // 이 포지션으로 이동하게 만들기
-            go.GetComponent<Card>().Setting(i, arr[i]); // 카드 사진 부여
+            var card = go.GetComponent<Card>();
+            card.Setting(i, arr[i]); // 카드 사진 부여
+            CardList.Add(card);
             GameManager.Instance.cardCount = arr.Length; // 카드 숫자 GameManager한테 보내기
 
             float distance = Vector2.Distance(startPosition, targetPosition);
@@ -99,12 +103,9 @@ public class Board : MonoBehaviour
                 Vector2 currentPosition = go.transform.position;
                 distance = Vector2.Distance(currentPosition, targetPosition);
                 yield return null;
-                Debug.Log("check");
             }
-            Debug.Log("check2");
-            go.transform.position = targetPosition;
-            
 
+            go.transform.position = targetPosition;
         }
     }
 }

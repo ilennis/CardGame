@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CheatManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    #region References
+    [Header("References")]
+    [SerializeField]
+    private Board board;
+    #endregion
 
-    // Update is called once per frame
-    void Update()
+    private void Awake() => Initialize();
+
+    private void Initialize()
     {
-        
+
     }
 }
