@@ -90,9 +90,9 @@ public class Board : MonoBehaviour
             float y = (i % 4) * 1.9f - 3.0f; // 사진 사이즈 맞추어서 간격 + 위치 잡아주기 y 축 (로직, 카드 사이즈 + 0.1, 카드 위치)
             Vector3 startPosition = go.transform.position;
             Vector2 targetPosition = new Vector2(x, y); // 이 포지션으로 이동하게 만들기
-            var card = go.GetComponent<Card>();
-            card.Setting(i, arr[i]); // 카드 사진 부여
-            CardList.Add(card);
+            var cardObject = go.GetComponent<Card>();
+            cardObject.Setting(i, arr[i]); // 카드 사진 부여
+            CardList.Add(cardObject);
             GameManager.Instance.cardCount = arr.Length; // 카드 숫자 GameManager한테 보내기
 
             float distance = Vector2.Distance(startPosition, targetPosition);

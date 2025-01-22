@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     public Text timeTxt;
     public Text warning;
-    
+
     /// <summary>
     ///public Text match;
     /// public Text nomatch;
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public int Attempts = 0;
     public int Success = 0;
 
-    float time = 60.0f;
+    public float Time { get; set; } = 60.0f;
 
     public List<Card> cards = new List<Card>();
 
@@ -55,12 +55,12 @@ public class GameManager : MonoBehaviour
         }
 
         //타이머
-        if (time > 0)
+        if (Time > 0)
         {
-            time -= Time.deltaTime;
-            timeTxt.text = time.ToString("N2");
+            Time -= UnityEngine.Time.deltaTime;
+            timeTxt.text = Time.ToString("N2");
             //시간이 10초 남았을 때
-            if (time <= 10.0f && !warning.gameObject.activeSelf)
+            if (Time <= 10.0f && !warning.gameObject.activeSelf)
             {
                 warning.gameObject.SetActive(true);
 
