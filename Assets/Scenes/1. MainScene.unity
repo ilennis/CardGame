@@ -1149,13 +1149,14 @@ GameObject:
   - component: {fileID: 750385653}
   - component: {fileID: 750385655}
   - component: {fileID: 750385654}
+  - component: {fileID: 750385656}
   m_Layer: 5
   m_Name: nomatch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &750385653
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1188,7 +1189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.0121601345, b: 0.4716981, a: 1}
+  m_Color: {r: 0.082353115, g: 0, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1219,6 +1220,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 750385652}
   m_CullTransparentMesh: 1
+--- !u!95 &750385656
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750385652}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 12c52d8b0b9058749894cbf39d8583f1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &834081310
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,7 +1791,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1118052533
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1802,7 +1824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1898,8 +1920,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeTxt: {fileID: 344504936}
   warning: {fileID: 1561437761}
-  match: {fileID: 1118052534}
-  nomatch: {fileID: 750385654}
+  Match: {fileID: 1118052536}
+  Nomatch: {fileID: 750385656}
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
   cardCount: 0

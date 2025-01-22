@@ -11,8 +11,14 @@ public class GameManager : MonoBehaviour
 
     public Text timeTxt;
     public Text warning;
-    public Text match;
-    public Text nomatch;
+    
+    /// <summary>
+    ///public Text match;
+    /// public Text nomatch;
+    /// </summary>
+
+    public Animator Match;
+    public Animator Nomatch;
 
     public Card firstCard;
     public Card secondCard;
@@ -149,19 +155,29 @@ public class GameManager : MonoBehaviour
     //카드가 매칭되었다는 문구
     void Matchcard()
     {
-        nomatch.gameObject.SetActive(false);
-        match.gameObject.SetActive(true);
-
+        Match.SetBool("ismatch", true);
+        Invoke("ResetBool_m", 0.5f);
         AudioManager.Instance.Play("SoundFX_Success");
+
         // match.gameObject.SetActive(false)
     }
 
+    //카드가 매칭되지않았다는 문구
     void NotMatchcard()
     {
-        match.gameObject.SetActive(false);
-        nomatch.gameObject.SetActive(true);
-
+        Nomatch.SetBool("isnomatch", true);
+        Invoke("ResetBool_n", 0.5f);
         AudioManager.Instance.Play("SoundFX_Fail");
-        // nomatch.gameObject.SetActive(false)
+
+    }
+
+    void ResetBool_m()
+    {
+        Match.SetBool("ismatch", false);
+    }
+
+    void ResetBool_n()
+    {
+        Nomatch.SetBool("isnomatch", false);
     }
 }
