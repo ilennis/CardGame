@@ -33,12 +33,12 @@ public class UI_TouchHere : MonoBehaviour
     {
         clickCount++;
         AudioManager.Instance.Play("SoundFX_StartButton");
-        AudioManager.Instance.StopMusic();
 
         if (clickCount >= 10)
         {
             characters.Jump();
             title.Death();
+            AudioManager.Instance.StopMusic();
             SceneManager.LoadScene(1);
         }
     }
