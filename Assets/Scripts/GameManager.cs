@@ -85,8 +85,6 @@ public class GameManager : MonoBehaviour
         //카드 매칭되었을 때
         if ((firstCard.arr_index != secondCard.arr_index) && (firstCard.index == secondCard.index))
         {
-            Matchcard();
-
             //리스트 삭제    
             cards.Remove(firstCard);
             cards.Remove(secondCard);
@@ -101,6 +99,7 @@ public class GameManager : MonoBehaviour
 
             if (cardCount == 0)
             {
+                Matchcard();
                 AudioManager.Instance.StopMusic();
                 AudioManager.Instance.Play("SoundFX_Victory");
 
@@ -109,12 +108,14 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                Matchcard();
                 Card_Click_Status(false);
 
                 Invoke("Card_click_ON", 0.5f);
 
             }
         }
+
         //틀리면 카드 다시 Close
         else
         {
@@ -157,7 +158,10 @@ public class GameManager : MonoBehaviour
     void Matchcard()
     {
         Match.SetBool("ismatch", true);
-        Invoke("ResetBool_m", 0.5f);
+        if (cardCount != 0)
+        {
+            Invoke("ResetBool_m", 0.5f);
+        }
         AudioManager.Instance.Play("SoundFX_Success");
 
         // match.gameObject.SetActive(false)
