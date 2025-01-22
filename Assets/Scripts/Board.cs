@@ -16,14 +16,17 @@ public class Board : MonoBehaviour
 
     private void Start()
     {
-        switch (StageManager.Instance.CurrentStage)
+        if (StageManager.Instance != null)
         {
-            case StageType.Easy:
-                cardCount = 12;
-                break;
-            case StageType.Hard:
-                cardCount = 20;
-                break;
+            switch (StageManager.Instance.CurrentStage)
+            {
+                case StageType.Easy:
+                    cardCount = 12;
+                    break;
+                case StageType.Hard:
+                    cardCount = 20;
+                    break;
+            }
         }
 
         GenerateArray();
