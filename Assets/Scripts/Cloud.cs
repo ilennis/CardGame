@@ -22,5 +22,9 @@ public class Cloud : MonoBehaviour
     private void Update()
     {
         transform.Translate(speed * Time.deltaTime * Vector2.left);
+        if (transform.position.x < -15.0f)
+        {
+            Destroy(gameObject);
+        }
     }
 }
