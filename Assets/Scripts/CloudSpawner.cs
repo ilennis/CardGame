@@ -17,6 +17,8 @@ public class CloudSpawner : MonoBehaviour
     {
         Initialize();
         StartCoroutine(Spawning());
+
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Initialize()
