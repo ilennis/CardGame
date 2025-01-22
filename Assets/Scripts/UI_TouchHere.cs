@@ -39,7 +39,7 @@ public class UI_TouchHere : MonoBehaviour
             characters.Jump();
             title.Death();
             AudioManager.Instance.StopMusic();
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(5);
         }
     }
 }
