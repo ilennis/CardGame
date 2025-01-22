@@ -724,12 +724,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161490960}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 10, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1654493061}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1161490962
 MonoBehaviour:
@@ -877,7 +877,6 @@ Transform:
   m_Children:
   - {fileID: 5382086567310839595}
   - {fileID: 7425499607435806904}
-  - {fileID: 1161490961}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1754001462
@@ -1236,7 +1235,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressedSprite: {fileID: -1943326319, guid: 90cf33c78f765ab4fbc474644feb6127, type: 3}
-  clickCount: 0
 --- !u!114 &1996483865 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5082312003185317949, guid: 2562e8db6c8524c4eb32d63537ae0a44, type: 3}
@@ -1484,6 +1482,7 @@ SceneRoots:
   - {fileID: 1007244834}
   - {fileID: 923257178}
   - {fileID: 1654493061}
+  - {fileID: 1161490961}
   - {fileID: 5634066413618993256}
   - {fileID: 1754673740}
   - {fileID: 85459159}

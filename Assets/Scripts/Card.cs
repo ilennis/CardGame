@@ -29,7 +29,7 @@ public class Card : MonoBehaviour
         if (!cardStatus) return;
 
         anim.SetBool("isOpen", true);
-        back.SetActive(false);
+        
         if (GameManager.Instance.firstCard == null)
         {
             GameManager.Instance.firstCard = this;
@@ -46,7 +46,7 @@ public class Card : MonoBehaviour
     {
         StartCoroutine(DelayClose(0.5f));
     }
-
+    
     public void DestroyCard()
     {
         // 점수 추가는 여기 위에 해주세요
@@ -68,7 +68,6 @@ public class Card : MonoBehaviour
     public void CloseImmediate()
     {
         anim.SetBool("isOpen", false);
-        back.SetActive(true);
         GameManager.Instance.firstCard = null;
         GameManager.Instance.secondCard = null;
     }
