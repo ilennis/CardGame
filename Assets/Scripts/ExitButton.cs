@@ -4,11 +4,10 @@ public class ExitButton : MonoBehaviour
 {
     public void GameExit()
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-        #else
+#else
         Application.Quit();
-        #endif
-        GameManager.Instance.IsEnded = false;
+#endif
     }
 }
