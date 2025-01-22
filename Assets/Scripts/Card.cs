@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Card : MonoBehaviour
@@ -14,7 +13,7 @@ public class Card : MonoBehaviour
 
     public void Awake()
     {
-        front = GetComponent<SpriteRenderer> ();
+        front = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
 
     }
@@ -31,7 +30,7 @@ public class Card : MonoBehaviour
 
         anim.SetBool("isOpen", true);
         back.SetActive(false);
-        if(GameManager.Instance.firstCard == null)
+        if (GameManager.Instance.firstCard == null)
         {
             GameManager.Instance.firstCard = this;
             AudioManager.Instance.Play("SoundFX_Click");
@@ -42,20 +41,18 @@ public class Card : MonoBehaviour
             GameManager.Instance.Matched();
         }
     }
-    
+
     public void CloseCard()
     {
-
         StartCoroutine(DelayClose(0.5f));
     }
-    
+
     public void DestroyCard()
     {
         // 점수 추가는 여기 위에 해주세요
         StartCoroutine(DelayDestroy(0.5f));
-      
     }
-    
+
     IEnumerator DelayDestroy(float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -65,6 +62,11 @@ public class Card : MonoBehaviour
     IEnumerator DelayClose(float delay)
     {
         yield return new WaitForSeconds(delay);
+        CloseImmediate();
+    }
+
+    public void CloseImmediate()
+    {
         anim.SetBool("isOpen", false);
         back.SetActive(true);
         GameManager.Instance.firstCard = null;
