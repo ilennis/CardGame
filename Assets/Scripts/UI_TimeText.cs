@@ -31,6 +31,7 @@ public class UI_TimeText : MonoBehaviour
 
         sequence.Restart();
         AudioManager.Instance.Play("SoundFX_ClockTicking");
+        CardBack.SetRandomColor();
     }
 
     private void OnDestroy()
