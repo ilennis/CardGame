@@ -6,5 +6,6 @@ public class RetryButton : MonoBehaviour
     public void Retry()
     {
         SceneManager.LoadScene("1. MainScene");
+        GameManager.Instance.IsEnded = false;
     }
 }
