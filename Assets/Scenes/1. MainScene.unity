@@ -1155,7 +1155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &750385653
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1188,7 +1188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.047058824, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.0121601345, b: 0.4716981, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1802,7 +1802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.047002554, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1898,11 +1898,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeTxt: {fileID: 344504936}
   warning: {fileID: 1561437761}
+  match: {fileID: 1118052534}
+  nomatch: {fileID: 750385654}
   attemptsCountTxt: {fileID: 0}
   successCountTxt: {fileID: 0}
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
   cardCount: 0
+  Attempts: 0
+  Success: 0
   cards: []
 --- !u!1 &1319849823
 GameObject:

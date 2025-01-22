@@ -12,9 +12,8 @@ public class GameManager : MonoBehaviour
 
     public Text timeTxt;
     public Text warning;
-
-    public Text attemptsCountTxt;
-    public Text successCountTxt;
+    public Text match;
+    public Text nomatch;
 
     public Card firstCard;
     public Card secondCard;
@@ -45,7 +44,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (time >= 0)
+        //타이머
+        if (time > 0)
         {
             time -= Time.deltaTime;
             timeTxt.text = time.ToString("N2");
@@ -54,23 +54,22 @@ public class GameManager : MonoBehaviour
             {
                 warning.gameObject.SetActive(true);
             }
-
-            //시간이 다 됐을 때
-            if (time <= 0f)
-            {
-                
-                SceneManager.LoadScene(3);
-            }
-            
+        }
+        //타이머가 끝났을떄
+        else
+        {
+            SceneManager.LoadScene(3);
         }
     }
 
     public void Matched() // 카드 판별 시스템
     {
         GameManager.Instance.AddAttempts();
-
+        //카드 매칭되었을 때
         if ((firstCard.arr_index != secondCard.arr_index) && (firstCard.index == secondCard.index))
         {
+            Matchcard();
+
             //리스트 삭제    
             cards.Remove(firstCard);
             cards.Remove(secondCard);
@@ -80,7 +79,7 @@ public class GameManager : MonoBehaviour
             secondCard.DestroyCard();
             
             cardCount -= 2;
-           
+
             GameManager.Instance.AddSuccess();
 
             if (cardCount == 0)
@@ -98,6 +97,7 @@ public class GameManager : MonoBehaviour
         //틀리면 카드 다시 Close
         else
         {
+            NotMatchcard();
             firstCard.CloseCard();
             secondCard.CloseCard();
 
@@ -106,16 +106,20 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+    //성공횟수 카운트
     public void AddSuccess()
     {
         Success++;
         // Data 저장 PlayerPrefs.SetInt("successCountTxt", totalsuccess);
     }
+    //시도횟수 카운트
     public void AddAttempts()
     {
         Attempts++;
        //  PlayerPrefs.SetInt("totalattempts", totalattempts);
     }
+
     void Card_click_ON()
     {
         Card_Click_Status(true);
@@ -126,6 +130,21 @@ public class GameManager : MonoBehaviour
         {
             cards[i].cardStatus = GET_status;
         }
+    }
+
+    //카드가 매칭되었다는 문구
+    void Matchcard()
+    {
+        nomatch.gameObject.SetActive(false);
+        match.gameObject.SetActive(true);
+        Invoke("match.gameObject.SetActive(false)", 2.5f);
+    }
+
+    void NotMatchcard()
+    {
+        match.gameObject.SetActive(false);
+        nomatch.gameObject.SetActive(true);
+        Invoke("nomatch.gameObject.SetActive(false)", 2.5f);
     }
 
 }
