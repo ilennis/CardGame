@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
@@ -22,6 +23,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance { get; private set; }
 
     private readonly AudioSource[] audioSources = new AudioSource[(int)AudioType.Count];
+    private readonly HashSet<AudioClip> audioClips = new();
 
     private void Awake()
     {
@@ -71,7 +73,9 @@ public class AudioManager : MonoBehaviour
                 audioSources[index].Play();
                 break;
             case AudioType.SoundFX:
+                if (audioClips.Add(clip) == false) return;
                 audioSources[(int)type].PlayOneShot(clip);
+                DOVirtual.DelayedCall(0.1f, () => audioClips.Remove(clip));
                 break;
             default:
                 Debug.LogError($"Failed to Play({type})");
