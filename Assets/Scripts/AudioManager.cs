@@ -87,7 +87,7 @@ public class AudioManager : MonoBehaviour
         musicFX.time = music.time;
         musicFX.volume = music.volume;
         musicFX.Play();
-        musicFX.DOFade(0.0f, 2.0f).OnComplete(() =>
+        musicFX.DOFade(0.0f, 1.0f).OnComplete(() =>
         {
             musicFX.Stop();
             musicFX.clip = null;
