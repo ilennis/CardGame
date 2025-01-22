@@ -21,10 +21,9 @@ public class GameManager : MonoBehaviour
 
     public int cardCount = 0;
 
-    int attempts = 0;
-    int success = 0;
-    int totalattempts = 0;
-    int totalsuccess = 0;
+    public int Attempts = 0;
+    public int Success = 0;
+   
     float time = 30.0f;
 
     public List<Card> cards = new List<Card>();
@@ -35,6 +34,11 @@ public class GameManager : MonoBehaviour
         if(Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -54,20 +58,19 @@ public class GameManager : MonoBehaviour
             //시간이 다 됐을 때
             if (time <= 0f)
             {
-                time = 0;
+                
                 SceneManager.LoadScene(3);
             }
+            
         }
     }
 
     public void Matched() // 카드 판별 시스템
     {
-        attempts++;
+        GameManager.Instance.AddAttempts();
 
-        if((firstCard.arr_index != secondCard.arr_index) && (firstCard.index == secondCard.index))
+        if ((firstCard.arr_index != secondCard.arr_index) && (firstCard.index == secondCard.index))
         {
-            success++;
-
             //리스트 삭제    
             cards.Remove(firstCard);
             cards.Remove(secondCard);
@@ -77,6 +80,8 @@ public class GameManager : MonoBehaviour
             secondCard.DestroyCard();
             
             cardCount -= 2;
+           
+            GameManager.Instance.AddSuccess();
 
             if (cardCount == 0)
             {
@@ -101,15 +106,15 @@ public class GameManager : MonoBehaviour
         }
 
     }
-    public void AddSuccess(int victoryCount)
+    public void AddSuccess()
     {
-        totalattempts += victoryCount;
-        successCountTxt.text = totalattempts.ToString();
+        Success++;
+        // Data 저장 PlayerPrefs.SetInt("successCountTxt", totalsuccess);
     }
-    public void AddAttempts(int attemptscount)
+    public void AddAttempts()
     {
-        totalattempts += attemptscount;
-        attemptsCountTxt.text = totalattempts.ToString();
+        Attempts++;
+       //  PlayerPrefs.SetInt("totalattempts", totalattempts);
     }
     void Card_click_ON()
     {
