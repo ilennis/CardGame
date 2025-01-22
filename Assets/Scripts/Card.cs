@@ -28,12 +28,13 @@ public class Card : MonoBehaviour
     {
 
         if (!cardStatus) return;
-        
+
         anim.SetBool("isOpen", true);
         back.SetActive(false);
         if(GameManager.Instance.firstCard == null)
         {
             GameManager.Instance.firstCard = this;
+            AudioManager.Instance.Play("SoundFX_Click");
         }
         else
         {
