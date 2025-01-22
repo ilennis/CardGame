@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public bool IsDefeat { get; set; } = false;
+    public bool IsEnded { get; set; } = false;
 
     public static GameManager Instance;
 
@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsDefeat)
+        if (IsEnded)
         {
             return;
         }
@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
             AudioManager.Instance.Play("SoundFX_Defeat");
 
             SceneManager.LoadScene(3);
-            IsDefeat = true;
+            IsEnded = true;
         }
     }
 
@@ -105,6 +105,7 @@ public class GameManager : MonoBehaviour
                 AudioManager.Instance.Play("SoundFX_Victory");
 
                 SceneManager.LoadScene(2);
+                IsEnded = true;
             }
             else
             {

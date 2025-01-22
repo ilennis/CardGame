@@ -9,6 +9,6 @@ public class ExitButton : MonoBehaviour
         #else
         Application.Quit();
         #endif
-        GameManager.Instance.IsDefeat = false;
+        GameManager.Instance.IsEnded = false;
     }
 }
