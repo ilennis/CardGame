@@ -15,10 +15,11 @@ public class HiddenCards : MonoBehaviour
     //public hiddenCharacter character;
 
     public CHARACTER index;
+    
 
     private void Start()
     {
-
+        
     }
 
     //카드를 클릭했을 때
@@ -27,15 +28,29 @@ public class HiddenCards : MonoBehaviour
   
         //캐릭터와 카드가 같은 index를 가지고 있는지 확인
 
-        //만약 같은 인덱스를 가지고 있다면
-        if (hiddenScene.turnNumber == (int)index)
+        //만약 캐릭터의 turn과 card가 같은 인덱스를 가지고 있다면
+        if (hiddenScene.whoseTurn == (int)index)
         {
             //정답입니다!
-            //캐릭터가 자리로 돌아감
-            //다음 턴으로 넘어감
-
             Debug.Log("정답입니다!");
-            hiddenScene.turnNumber++;
+            //캐릭터가 점프
+            hiddenScene.characters[(int)index].Jump();
+            //캐릭터의 턴이 끝났음을 알려주기
+            hiddenScene.characters[(int)index].isMyTurn = false;
+            //돌아가게 만들기
+            hiddenScene.characters[(int)index].isBack = true;
+            
+            //만약 아직 다른 사람이 남아있다면
+            if (hiddenScene.whoseTurn < 4) 
+            {
+                //타음 턴으로 넘겨주기
+                hiddenScene.whoseTurn++;
+                //다음 사람에게 네 턴이라고 알려주기
+                hiddenScene.characters[hiddenScene.whoseTurn].isMyTurn = true;
+                //앞자리까지 부르기
+                hiddenScene.characters[hiddenScene.whoseTurn].isGoing = true;
+            }
+
         }
         //만약 다른 인덱스를 가지고 있다면
         else

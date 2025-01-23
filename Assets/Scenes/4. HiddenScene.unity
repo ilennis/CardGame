@@ -562,12 +562,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f9fd68775ac3649a74db679059f6c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DongYoung: {fileID: 8569385398743352277}
-  HyeJin: {fileID: 5638557202249939887}
-  DongHoon: {fileID: 4542867234781203364}
-  HanNa: {fileID: 6471829309768329299}
-  SeokHo: {fileID: 5619969467762191619}
-  turnNumber: 0
+  characters:
+  - {fileID: 8569385398743352277}
+  - {fileID: 5638557202249939887}
+  - {fileID: 4542867234781203364}
+  - {fileID: 6471829309768329299}
+  - {fileID: 5619969467762191619}
+  cards:
+  - {fileID: 3835833837070565348}
+  - {fileID: 3835833837292214474}
+  - {fileID: 3835833837203395253}
+  - {fileID: 3835833836122461217}
+  - {fileID: 3835833836808070444}
+  whoseTurn: 0
 --- !u!1 &945115955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,7 +1626,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -478, y: 60}
+  m_AnchoredPosition: {x: -478, y: 90}
   m_SizeDelta: {x: 504, y: 225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1910505726
@@ -2070,7 +2077,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playable: 1
-  ch: 0
 --- !u!1 &998049693713699571
 GameObject:
   m_ObjectHideFlags: 0
@@ -3461,7 +3467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hiddenScene: {fileID: 923257179}
-  index: 3
+  index: 0
 --- !u!212 &3835833836808070443
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3527,7 +3533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hiddenScene: {fileID: 923257179}
-  index: 4
+  index: 1
 --- !u!212 &3835833837070565347
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3593,7 +3599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hiddenScene: {fileID: 923257179}
-  index: 0
+  index: 2
 --- !u!212 &3835833837203395252
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3659,7 +3665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hiddenScene: {fileID: 923257179}
-  index: 2
+  index: 4
 --- !u!212 &3835833837292214473
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3725,7 +3731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hiddenScene: {fileID: 923257179}
-  index: 1
+  index: 3
 --- !u!4 &4078382028030990655
 Transform:
   m_ObjectHideFlags: 0
@@ -3908,8 +3914,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96385969498ac974a847f8fa9353dfd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 0
+  index: 2
   hidden: {fileID: 923257179}
+  children: {fileID: 0}
+  myPosition: {x: 0, y: 0, z: 0}
+  isMyTurn: 0
+  isGoing: 0
+  isBack: 0
 --- !u!4 &4710493943219548658
 Transform:
   m_ObjectHideFlags: 0
@@ -3919,7 +3930,7 @@ Transform:
   m_GameObject: {fileID: 3293927279481033103}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6, y: 0, z: 0}
+  m_LocalPosition: {x: -1.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4200,6 +4211,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: HiddenCards, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4490,8 +4513,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96385969498ac974a847f8fa9353dfd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 0
+  index: 4
   hidden: {fileID: 923257179}
+  children: {fileID: 0}
+  myPosition: {x: 0, y: 0, z: 0}
+  isMyTurn: 0
+  isGoing: 0
+  isBack: 0
 --- !u!1 &5638557202249939886
 GameObject:
   m_ObjectHideFlags: 0
@@ -4524,8 +4552,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96385969498ac974a847f8fa9353dfd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 0
+  index: 1
   hidden: {fileID: 923257179}
+  children: {fileID: 0}
+  myPosition: {x: 0, y: 0, z: 0}
+  isMyTurn: 0
+  isGoing: 0
+  isBack: 0
 --- !u!1 &5958283103839748383
 GameObject:
   m_ObjectHideFlags: 0
@@ -4945,8 +4978,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96385969498ac974a847f8fa9353dfd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 0
+  index: 3
   hidden: {fileID: 923257179}
+  children: {fileID: 0}
+  myPosition: {x: 0, y: 0, z: 0}
+  isMyTurn: 0
+  isGoing: 0
+  isBack: 0
 --- !u!212 &6747229874489385747
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5540,6 +5578,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   hidden: {fileID: 923257179}
+  children: {fileID: 0}
+  myPosition: {x: 0, y: 0, z: 0}
+  isMyTurn: 0
+  isGoing: 0
+  isBack: 0
 --- !u!212 &8864841775094226094
 SpriteRenderer:
   m_ObjectHideFlags: 0
