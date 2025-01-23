@@ -19,7 +19,7 @@ public class Button_Start : MonoBehaviour
         DOVirtual.DelayedCall(0.8f, () =>
         {
             GetComponent<Image>().sprite = pressedSprite;
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(4);
         });
     }
 }

@@ -16,6 +16,11 @@ public class CheatManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
+                if (GameManager.Instance.cardCount == 0)
+                {
+                    return;
+                }
+
                 isOpening = true;
                 cardList = GameManager.Instance.cards.OrderBy(x => x.index).ToList();
                 StartCoroutine(OpenCards());

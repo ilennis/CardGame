@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -107,11 +108,14 @@ public class GameManager : MonoBehaviour
             if (cardCount == 0)
             {
                 Matchcard();
-                AudioManager.Instance.StopMusic();
-                AudioManager.Instance.Play("SoundFX_Victory");
-
-                SceneManager.LoadScene(2);
                 IsEnded = true;
+
+                DOVirtual.DelayedCall(0.5f, () =>
+                {
+                    AudioManager.Instance.StopMusic();
+                    AudioManager.Instance.Play("SoundFX_Victory");
+                    SceneManager.LoadScene(2);
+                });
             }
             else
             {
