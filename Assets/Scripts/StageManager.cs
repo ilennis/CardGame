@@ -17,6 +17,8 @@ public class StageManager : MonoBehaviour
     public StageType CurrentStage { get; private set; } = StageType.Easy;
     public static StageManager Instance { get; private set; }
 
+    private bool isLoading = false;
+
     private void Awake()
     {
         if (Instance != null)
@@ -31,6 +33,12 @@ public class StageManager : MonoBehaviour
 
     public void SelectStage(StageType stage)
     {
+        if (isLoading)
+        {
+            return;
+        }
+
+        isLoading = true;
         AudioManager.Instance.StopMusic();
 
         DOVirtual.DelayedCall(1.0f, () =>
@@ -50,6 +58,8 @@ public class StageManager : MonoBehaviour
                 CurrentStage = stage;
                 SceneManager.LoadScene(1);
             }
+
+            isLoading = false;
         });
     }
 
