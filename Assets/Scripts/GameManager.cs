@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static float TIME = 60.0f;
+    public static float TIME = 20.0f;
 
     public bool IsEnded { get; set; } = false;
 
@@ -22,17 +22,17 @@ public class GameManager : MonoBehaviour
     public Animator Match;
     public Animator Nomatch;
 
-    public Card firstCard;
-    public Card secondCard;
+    public Card firstCard { get; set; }
+    public Card secondCard { get; set; }
 
-    public int cardCount = 0;
+    public int cardCount { get; set; } = 0;
 
     public int Attempts = 0;
     public int Success = 0;
 
     public float Time { get; set; } = TIME;
 
-    public List<Card> cards = new List<Card>();
+    public List<Card> cards { get; private set; } = new List<Card>();
 
 
     private void Awake()
