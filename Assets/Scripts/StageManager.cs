@@ -10,7 +10,7 @@ public enum StageType
 
 public class StageManager : MonoBehaviour
 {
-    private readonly float LOADING_DELAY = 1.0f;
+    private readonly float LOADING_DELAY = 0.6f;
 
     public Canvas canvas;
 

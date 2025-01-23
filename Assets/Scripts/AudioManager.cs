@@ -68,6 +68,7 @@ public class AudioManager : MonoBehaviour
         {
             case AudioType.Music:
                 int index = (int)type;
+                if (audioSources[index].clip != null) return;
                 audioSources[index].clip = clip;
                 audioSources[index].DOFade(VOLUMES[index], 2.0f).From(0.0f);
                 audioSources[index].Play();

@@ -105,6 +105,7 @@ public class GameManager : MonoBehaviour
             {
                 Matchcard();
                 IsEnded = true;
+                cards.Clear();
 
                 DOVirtual.DelayedCall(0.5f, () =>
                 {
