@@ -14,16 +14,19 @@ public class CheatManager : MonoBehaviour
     {
         if (isOpening == false)
         {
+            if (GameManager.Instance.cardCount == 0)
+            {
+                return;
+            }
+
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                if (GameManager.Instance.cardCount == 0)
-                {
-                    return;
-                }
-
-                isOpening = true;
-                cardList = GameManager.Instance.cards.OrderBy(x => x.index).ToList();
                 StartCoroutine(OpenCards());
+            }
+
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                StartCoroutine(OpenAllCards());
             }
         }
 
@@ -35,8 +38,11 @@ public class CheatManager : MonoBehaviour
 
     private IEnumerator OpenCards()
     {
+        isOpening = true;
+
         yield return delay;
 
+        cardList = GameManager.Instance.cards.OrderBy(x => x.index).ToList();
         for (int i = 0; i < 2; i++)
         {
             cardList[i].OpenCard();
@@ -44,5 +50,13 @@ public class CheatManager : MonoBehaviour
         }
 
         isOpening = false;
+    }
+
+    private IEnumerator OpenAllCards()
+    {
+        while (GameManager.Instance.cardCount > 0)
+        {
+            yield return OpenCards();
+        }
     }
 }

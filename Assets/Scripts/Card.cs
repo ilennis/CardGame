@@ -37,7 +37,10 @@ public class Card : MonoBehaviour
 
         if (!cardStatus) return;
 
-        anim.SetBool("isOpen", true);
+        if (anim != null)
+        {
+            anim.SetBool("isOpen", true);
+        }
 
         if (GameManager.Instance.firstCard == null)
         {
