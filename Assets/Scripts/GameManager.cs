@@ -9,16 +9,12 @@ public class GameManager : MonoBehaviour
     public static float TIME = 20.0f;
 
     public bool IsEnded { get; set; } = false;
+    public bool EasyClear = false;
 
     public static GameManager Instance;
 
     public Text timeTxt;
     public Text warning;
-
-    /// <summary>
-    ///public Text match;
-    /// public Text nomatch;
-    /// </summary>
 
     public Animator Match;
     public Animator Nomatch;
@@ -112,6 +108,7 @@ public class GameManager : MonoBehaviour
 
                 DOVirtual.DelayedCall(0.5f, () =>
                 {
+                    EasyClear = true;
                     AudioManager.Instance.StopMusic();
                     AudioManager.Instance.Play("SoundFX_Victory");
                     SceneManager.LoadScene(2);
