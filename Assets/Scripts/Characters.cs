@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class Characters : MonoBehaviour
 {
@@ -20,42 +16,47 @@ public class Characters : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isLeft)
+        if (isLeft)
         {
-           
+
             if (transform.position.x > -8.0f)
             {
                 transform.position += Vector3.left * direction;
             }
-            
+
         }
-        if(isRight)
+        if (isRight)
         {
-;   
+            ;
             if (transform.position.x < 7.6f)
             {
                 transform.position += Vector3.right * direction;
             }
         }
-        
-        
+
+
 
     }
     public void OnClick()
     {
-        isLeft = true;
-        isRight = false;
-
+        if (!isLeft && !isRight)
+        {
+            isLeft = true;
+            isRight = false;
+        }
     }
 
     public void ReverseClick()
     {
-        isRight = true;
-        isLeft = false;
+        if (StageManager.Instance.Isclear() == false)
+        {
+            return;
+        }
 
+        if (!isLeft && !isRight)
+        {
+            isRight = true;
+            isLeft = false;
+        }
     }
-    
 }
-
-
-
