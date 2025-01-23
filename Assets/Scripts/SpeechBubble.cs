@@ -8,19 +8,8 @@ public class SpeechBubble : MonoBehaviour
     public Scene_Hidden hidden;
     public Text bubbleText;
 
-    private bool check;
-
-    private void Awake()
-    {
-        check = false;
-        bubbleText = this.GetComponentInChildren<Text>();
-    }
-
     void Start()
     {
-        //check = false;
-        //this.gameObject.SetActive(false);
-        
 
     }
 

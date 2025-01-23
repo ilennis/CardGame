@@ -7,7 +7,7 @@ using UnityEngine.TextCore.Text;
 
 
 
-public class hiddenCharacter : MonoBehaviour
+public class HiddenCharacter : MonoBehaviour
 {
     public CHARACTER index;
 
@@ -25,12 +25,11 @@ public class hiddenCharacter : MonoBehaviour
 
     void Start()
     {
+        isMyTurn = false;
+
         children = GetComponent<Rigidbody2D>();
         myPosition = transform.position;
-        hidden.speed = 1.0f;
-        //isMyTurn = false;
-        //isGoing = false;
-        //isBack = false;
+
     }
 
     private void Update()
@@ -87,8 +86,16 @@ public class hiddenCharacter : MonoBehaviour
         }
         else
         {
+
+            if (hidden.turnCount >= 5)
+            {
+                Debug.Log("엔딩!!");
+                Invoke("Ending", 4.0f);
+            }
+                
             //Debug.Log(this.index + " Back 나감");
             isBack = false;
+
         }
     }
 
@@ -99,6 +106,12 @@ public class hiddenCharacter : MonoBehaviour
     private void BubbleOn()
     {
         hidden.bubble.gameObject.SetActive(true);
+    }
+    private void Ending()
+    {
+        hidden.stageButton.gameObject.SetActive(true);
+        hidden.titleButton.gameObject.SetActive(true);
+        hidden.titleText.text = "사진을 찾아줘서 고마워요!";
     }
 
 }

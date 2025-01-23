@@ -41,7 +41,7 @@ public class HiddenCards : MonoBehaviour
             //캐릭터가 점프
             hidden.characters[(int)index].Jump();
             //캐릭터의 턴이 끝났음을 알려주기
-            //hiddenScene.characters[(int)index].isMyTurn = false;
+            //hidden.characters[(int)index].isMyTurn = false;
             //돌아가게 만들기
             hidden.characters[(int)index].isBack = true;
             
@@ -51,10 +51,12 @@ public class HiddenCards : MonoBehaviour
                 //타음 턴으로 넘겨주기
                 hidden.whoseTurn++;
                 //다음 사람에게 네 턴이라고 알려주기
-                //hiddenScene.characters[hiddenScene.whoseTurn].isMyTurn = true;
+                //hidden.characters[hidden.whoseTurn].isMyTurn = true;
                 //앞자리까지 부르기
                 hidden.characters[hidden.whoseTurn].isGoing = true;
             }
+
+            hidden.turnCount++;
 
         }
         //만약 다른 인덱스를 가지고 있다면
