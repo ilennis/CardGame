@@ -9,7 +9,6 @@ public class Characters : MonoBehaviour
     bool isLeft = false;
     bool isRight = false;
     float direction = 0.05f;
-    SpriteRenderer renderer;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,23 +19,21 @@ public class Characters : MonoBehaviour
     void Update()
     {
         if(isLeft)
-        { 
-            
+        {
+
             
             if (transform.position.x > -8.0f)
             {
-                transform.position += Vector3.left * direction;
-                // transform.position += Vector3.left * 0f;
+                transform.position = Vector3.left * direction;
             }
         }
         if(isRight)
         {
             
-            
             if (transform.position.x < 7.6f)
             {
-                transform.position += Vector3.right * direction;
-                //transform.position += Vector3.right * 0f;
+                transform.position = Vector3.right * direction;
+                
             }
         }  
     }

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Unlock : MonoBehaviour
+public class Next : MonoBehaviour
 {
-    public Button OffBtn;
+    public Button NextBtn;
+    public GameObject NextPanel;
     public GameObject Panel;
-    public GameObject BackBtn;
-    public GameObject Nextpanel;
+    public GameObject OffButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,14 +20,9 @@ public class Unlock : MonoBehaviour
     {
         
     }
-
-    public void Notion_OFF()
+    public void NextTxt()
     {
-        Panel.SetActive(false);
-    }
-    public void BackTxt()
-    {
-        Nextpanel.SetActive(true);
-        Panel.SetActive(false);
+        Panel.SetActive(true);
+        NextPanel.SetActive(false);
     }
 }
