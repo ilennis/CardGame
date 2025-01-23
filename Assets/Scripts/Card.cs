@@ -39,7 +39,7 @@ public class Card : MonoBehaviour
             GameManager.Instance.firstCard = this;
             AudioManager.Instance.Play("SoundFX_Click");
         }
-        else
+        else if (arr_index != GameManager.Instance.firstCard.arr_index)
         {
             GameManager.Instance.secondCard = this;
             GameManager.Instance.Matched();

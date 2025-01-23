@@ -22,8 +22,8 @@ public class GameManager : MonoBehaviour
     public Animator Match;
     public Animator Nomatch;
 
-    public Card firstCard;
-    public Card secondCard;
+    public Card firstCard { get; set; }
+    public Card secondCard { get; set; }
 
     public int cardCount { get; set; } = 0;
 
