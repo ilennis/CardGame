@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class Next : MonoBehaviour
 {
-    public Button NextBtn;
     public GameObject NextPanel;
-    public GameObject Panel;
     public GameObject OffButton;
     // Start is called before the first frame update
     void Start()
@@ -20,14 +18,8 @@ public class Next : MonoBehaviour
     {
         
     }
-    public void NextTxt()
-    {
-        Panel.SetActive(true);
-        NextPanel.SetActive(false);
-    }
     public void Notion_OFF()
     {
         NextPanel.SetActive(false);
-        Panel.SetActive(false);
     }
 }

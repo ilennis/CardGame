@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &12683994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1749,7 +1749,7 @@ GameObject:
   - component: {fileID: 1487722197}
   m_Layer: 5
   m_Name: HardModeBtn
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1820,7 +1820,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 994223140}
         m_TargetAssemblyTypeName: Characters, Assembly-CSharp
-        m_MethodName: reverseClick
+        m_MethodName: ReverseClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1832,7 +1832,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 625598082}
         m_TargetAssemblyTypeName: Characters, Assembly-CSharp
-        m_MethodName: reverseClick
+        m_MethodName: ReverseClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1844,7 +1844,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1399280840}
         m_TargetAssemblyTypeName: Characters, Assembly-CSharp
-        m_MethodName: reverseClick
+        m_MethodName: ReverseClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1856,7 +1856,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1543709951}
         m_TargetAssemblyTypeName: Characters, Assembly-CSharp
-        m_MethodName: reverseClick
+        m_MethodName: ReverseClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1868,7 +1868,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1993149216}
         m_TargetAssemblyTypeName: Characters, Assembly-CSharp
-        m_MethodName: reverseClick
+        m_MethodName: ReverseClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2187,7 +2187,7 @@ GameObject:
   - component: {fileID: 1563199478}
   m_Layer: 5
   m_Name: EasyModeBtn
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
