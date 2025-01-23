@@ -576,6 +576,7 @@ MonoBehaviour:
   - {fileID: 3835833836808070444}
   bubble: {fileID: 1910505728}
   whoseTurn: 0
+  speed: 0
 --- !u!1 &945115955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,7 +1017,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\uC81C \uC0AC\uC9C4\uC744 \uCC3E\uC544\uC8FC\uC138\uC694"
+  m_Text: "\uC81C \uC0AC\uC9C4\uC744 \uCC3E\uC544\uC8FC\uC138\uC694."
 --- !u!222 &1473748774
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1681,6 +1682,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7031b7281b57afd4ab0d1b5fdf3a60e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hidden: {fileID: 923257179}
+  bubbleText: {fileID: 1473748773}
 --- !u!1 &1988921760
 GameObject:
   m_ObjectHideFlags: 0
@@ -3480,7 +3483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 244c3663a9b7c1042a43f40e5f86b556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hiddenScene: {fileID: 923257179}
+  hidden: {fileID: 923257179}
   index: 0
 --- !u!212 &3835833836808070443
 SpriteRenderer:
@@ -3546,7 +3549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 244c3663a9b7c1042a43f40e5f86b556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hiddenScene: {fileID: 923257179}
+  hidden: {fileID: 923257179}
   index: 1
 --- !u!212 &3835833837070565347
 SpriteRenderer:
@@ -3612,7 +3615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 244c3663a9b7c1042a43f40e5f86b556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hiddenScene: {fileID: 923257179}
+  hidden: {fileID: 923257179}
   index: 2
 --- !u!212 &3835833837203395252
 SpriteRenderer:
@@ -3678,7 +3681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 244c3663a9b7c1042a43f40e5f86b556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hiddenScene: {fileID: 923257179}
+  hidden: {fileID: 923257179}
   index: 4
 --- !u!212 &3835833837292214473
 SpriteRenderer:
@@ -3744,7 +3747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 244c3663a9b7c1042a43f40e5f86b556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hiddenScene: {fileID: 923257179}
+  hidden: {fileID: 923257179}
   index: 3
 --- !u!4 &4078382028030990655
 Transform:

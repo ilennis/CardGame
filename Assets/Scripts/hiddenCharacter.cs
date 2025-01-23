@@ -20,14 +20,14 @@ public class hiddenCharacter : MonoBehaviour
     public bool isGoing = false;
     public bool isBack = false;
 
-    private float speed;
+    //private bool isBubbleOn = false;
 
 
     void Start()
     {
         children = GetComponent<Rigidbody2D>();
         myPosition = transform.position;
-        speed = 1.0f;
+        hidden.speed = 1.0f;
         //isMyTurn = false;
         //isGoing = false;
         //isBack = false;
@@ -37,7 +37,7 @@ public class hiddenCharacter : MonoBehaviour
     {
         if(isGoing)
         {
-            Debug.Log(this.index + " Go 진입");
+            //Debug.Log(this.index + " Go 진입");
             
 
             if (hidden.whoseTurn == 0)
@@ -46,14 +46,14 @@ public class hiddenCharacter : MonoBehaviour
             }
             else
             {
-                Invoke("Go", speed);
+                Invoke("Go", hidden.speed);
             }    
         }
 
         if(isBack)
         {
-            Debug.Log(this.index + " Back 진입");
-            Invoke("Back", speed);
+            //Debug.Log(this.index + " Back 진입");
+            Invoke("Back", hidden.speed);
             //Invoke("BubbleOff", speed);
         }
 
@@ -74,7 +74,7 @@ public class hiddenCharacter : MonoBehaviour
         {
             BubbleOn();
             isGoing = false;
-            Debug.Log(this.index + " Go 나감");
+            //Debug.Log(this.index + " Go 나감");
         }
     }
 
@@ -87,7 +87,7 @@ public class hiddenCharacter : MonoBehaviour
         }
         else
         {
-            Debug.Log(this.index + " Back 나감");
+            //Debug.Log(this.index + " Back 나감");
             isBack = false;
         }
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 //메모
@@ -11,7 +12,7 @@ using UnityEngine;
 
 public class HiddenCards : MonoBehaviour
 {
-    public Scene_Hidden hiddenScene;
+    public Scene_Hidden hidden;
     //public hiddenCharacter character;
 
     public CHARACTER index;
@@ -29,26 +30,30 @@ public class HiddenCards : MonoBehaviour
         //캐릭터와 카드가 같은 index를 가지고 있는지 확인
 
         //만약 캐릭터의 turn과 card가 같은 인덱스를 가지고 있다면
-        if (hiddenScene.whoseTurn == (int)index)
+        if (hidden.whoseTurn == (int)index)
         {
             //정답입니다!
-            Debug.Log("정답입니다!");
+            //Debug.Log("정답입니다!");
+            hidden.bubble.CorrectText();
+            hidden.bubble.RequestText();
+
+
             //캐릭터가 점프
-            hiddenScene.characters[(int)index].Jump();
+            hidden.characters[(int)index].Jump();
             //캐릭터의 턴이 끝났음을 알려주기
-            hiddenScene.characters[(int)index].isMyTurn = false;
+            //hiddenScene.characters[(int)index].isMyTurn = false;
             //돌아가게 만들기
-            hiddenScene.characters[(int)index].isBack = true;
+            hidden.characters[(int)index].isBack = true;
             
             //만약 아직 다른 사람이 남아있다면
-            if (hiddenScene.whoseTurn < 4) 
+            if (hidden.whoseTurn < 4) 
             {
                 //타음 턴으로 넘겨주기
-                hiddenScene.whoseTurn++;
+                hidden.whoseTurn++;
                 //다음 사람에게 네 턴이라고 알려주기
-                hiddenScene.characters[hiddenScene.whoseTurn].isMyTurn = true;
+                //hiddenScene.characters[hiddenScene.whoseTurn].isMyTurn = true;
                 //앞자리까지 부르기
-                hiddenScene.characters[hiddenScene.whoseTurn].isGoing = true;
+                hidden.characters[hidden.whoseTurn].isGoing = true;
             }
 
         }
@@ -56,7 +61,9 @@ public class HiddenCards : MonoBehaviour
         else
         {
             //틀렸습니다
-            Debug.Log("틀렸습니다!!");
+            //Debug.Log("틀렸습니다!!");
+            hidden.bubble.WrongText();
+            hidden.bubble.RequestText();
         }
 
     }

@@ -25,7 +25,8 @@ public class Scene_Hidden : Scene_Base
     public SpeechBubble bubble;
 
     public int whoseTurn;
-    
+    public float speed = 1.0f;
+
 
     protected override void Initialize()
     {
@@ -39,6 +40,7 @@ public class Scene_Hidden : Scene_Base
 
         //whoseTurn = (int)CHARACTER.DongYoung; // 0
         //characters[whoseTurn].isMyTurn = true;
+        //speed = 1.0f;
 
         whoseTurn = 0;
         characters[whoseTurn].isMyTurn = true;
