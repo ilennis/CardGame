@@ -1,12 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class CheatManager : MonoBehaviour
 {
-    private List<Card> cardList = new();
-
     private bool isOpening = false;
     private readonly WaitForSeconds delay = new(0.1f);
 
@@ -42,7 +39,8 @@ public class CheatManager : MonoBehaviour
 
         yield return delay;
 
-        cardList = GameManager.Instance.cards.OrderBy(x => x.index).ToList();
+        var cardList = GameManager.Instance.cards.OrderBy(x => x.index).Where(x => x != null).ToList();
+        
         for (int i = 0; i < 2; i++)
         {
             cardList[i].OpenCard();
