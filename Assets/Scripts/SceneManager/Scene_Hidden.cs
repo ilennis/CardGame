@@ -22,6 +22,8 @@ public class Scene_Hidden : Scene_Base
     public hiddenCharacter[] characters;
     public HiddenCards[] cards;
 
+    public SpeechBubble bubble;
+
     public int whoseTurn;
     
 
