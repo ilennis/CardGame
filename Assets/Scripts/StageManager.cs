@@ -10,6 +10,8 @@ public enum StageType
 
 public class StageManager : MonoBehaviour
 {
+    private readonly float LOADING_DELAY = 1.0f;
+
     public Canvas canvas;
 
     public bool clear = false;
@@ -41,7 +43,7 @@ public class StageManager : MonoBehaviour
         isLoading = true;
         AudioManager.Instance.StopMusic();
 
-        DOVirtual.DelayedCall(1.0f, () =>
+        DOVirtual.DelayedCall(LOADING_DELAY, () =>
         {
             //하드모드일때
             if (stage == StageType.Hard)
