@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static float TIME = 60.0f;
+    public static float TIME = 20.0f;
 
     public bool IsEnded { get; set; } = false;
 

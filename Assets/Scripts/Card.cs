@@ -25,11 +25,15 @@ public class Card : MonoBehaviour
     }
     public void OpenCard()
     {
+        if (Board.isCreated == false)
+        {
+            return;
+        }
 
         if (!cardStatus) return;
 
         anim.SetBool("isOpen", true);
-        
+
         if (GameManager.Instance.firstCard == null)
         {
             GameManager.Instance.firstCard = this;
@@ -46,7 +50,7 @@ public class Card : MonoBehaviour
     {
         StartCoroutine(DelayClose(0.5f));
     }
-    
+
     public void DestroyCard()
     {
         // 점수 추가는 여기 위에 해주세요
