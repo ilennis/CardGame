@@ -187,11 +187,11 @@ public class GameManager : MonoBehaviour
 
     void ResetBool_m()
     {
-        Match.SetBool("ismatch", false);
+        Match?.SetBool("ismatch", false);
     }
 
     void ResetBool_n()
     {
-        Nomatch.SetBool("isnomatch", false);
+        Nomatch?.SetBool("isnomatch", false);
     }
 }
