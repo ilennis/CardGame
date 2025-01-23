@@ -764,6 +764,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f289bfa9ddbc6724cb081aff5513cd0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EasyButton: {fileID: 1563199478}
+  HardButton: {fileID: 1487722197}
 --- !u!1 &812994630
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,6 +1143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f289bfa9ddbc6724cb081aff5513cd0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EasyButton: {fileID: 1563199478}
+  HardButton: {fileID: 1487722197}
 --- !u!1 &1020452063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,6 +1687,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f289bfa9ddbc6724cb081aff5513cd0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EasyButton: {fileID: 1563199478}
+  HardButton: {fileID: 1487722197}
 --- !u!1 &1474304079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1692,7 +1698,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1474304081}
-  - component: {fileID: 1474304080}
   - component: {fileID: 1474304082}
   m_Layer: 0
   m_Name: StageManager
@@ -1701,18 +1706,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1474304080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1474304079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0aaf829bb98fe44eb5e3f06edbd2c96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1474304081
 Transform:
   m_ObjectHideFlags: 0
@@ -1740,7 +1733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c1665c06c7bcde4c8a80e5355e8421b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnlockPanel: {fileID: 12683993}
+  UnlockPanel: {fileID: 863641842}
 --- !u!1 &1487722192
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,8 +2023,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 863641846}
-        m_TargetAssemblyTypeName: Unlock, Assembly-CSharp
+      - m_Target: {fileID: 1341679587}
+        m_TargetAssemblyTypeName: Next, Assembly-CSharp
         m_MethodName: Notion_OFF
         m_Mode: 1
         m_Arguments:
@@ -2177,6 +2170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f289bfa9ddbc6724cb081aff5513cd0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EasyButton: {fileID: 1563199478}
+  HardButton: {fileID: 1487722197}
 --- !u!1 &1563199473
 GameObject:
   m_ObjectHideFlags: 0
@@ -3046,6 +3041,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f289bfa9ddbc6724cb081aff5513cd0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EasyButton: {fileID: 1563199478}
+  HardButton: {fileID: 1487722197}
 --- !u!1 &2023870788
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class Characters : MonoBehaviour
 {
+    public StageButton EasyButton;
+    public StageButton HardButton;
     bool isLeft = false;
     bool isRight = false;
     float direction = 0.05f;
@@ -21,18 +23,18 @@ public class Characters : MonoBehaviour
         if(isLeft)
         {
 
-            
-            if (transform.position.x > -8.0f)
+            transform.position = Vector3.left * direction;
+            if (transform.position.x == -8.0f)
             {
-                transform.position = Vector3.left * direction;
+                StageManager.Instance.SelectStage(StageType.Easy);
             }
         }
         if(isRight)
         {
-            
-            if (transform.position.x < 7.6f)
+            transform.position = Vector3.right * direction;
+            if (transform.position.x == 7.6f)
             {
-                transform.position = Vector3.right * direction;
+                StageManager.Instance.SelectStage(StageType.Hard);
                 
             }
         }  

@@ -19,7 +19,6 @@ public class StageButton : MonoBehaviour
     }
     public void MakeEasyMode()
     {
-
         StageManager.Instance.SelectStage(StageType.Easy);
     }
     public void MakeHardMode()

@@ -25,4 +25,9 @@ public class Next : MonoBehaviour
         Panel.SetActive(true);
         NextPanel.SetActive(false);
     }
+    public void Notion_OFF()
+    {
+        NextPanel.SetActive(false);
+        Panel.SetActive(false);
+    }
 }
