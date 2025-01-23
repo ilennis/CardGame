@@ -20,6 +20,7 @@ public class StageButton : MonoBehaviour
     }
     public void MakeEasyMode()
     {
+        Invoke("SelectScene", 2f);
         StageManager.Instance.SelectStage(StageType.Easy);
     }
     public void MakeHardMode()
@@ -27,6 +28,7 @@ public class StageButton : MonoBehaviour
         ConditionCheck();
         if (StageManager.Instance.clear == true)
         {
+            Invoke("SelectScene", 2f);
             StageManager.Instance.SelectStage(StageType.Hard);
         }
     }

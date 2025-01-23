@@ -6,7 +6,7 @@ public class Characters : MonoBehaviour
     public StageButton HardButton;
     bool isLeft = false;
     bool isRight = false;
-    float direction = 0.05f;
+    float direction = 0.4f;
     // Start is called before the first frame update
     void Start()
     {
