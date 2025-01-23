@@ -25,14 +25,14 @@ public class GameManager : MonoBehaviour
     public Card firstCard;
     public Card secondCard;
 
-    public int cardCount = 0;
+    public int cardCount { get; set; } = 0;
 
     public int Attempts = 0;
     public int Success = 0;
 
     public float Time { get; set; } = TIME;
 
-    public List<Card> cards = new List<Card>();
+    public List<Card> cards { get; private set; } = new List<Card>();
 
 
     private void Awake()

@@ -24,16 +24,19 @@ public class CheatManager : MonoBehaviour
 
     private void Update()
     {
-        if (isOpening)
+        if (isOpening == false)
         {
-            return;
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                isOpening = true;
+                cardList = GameManager.Instance.cards.OrderBy(x => x.index).ToList();
+                StartCoroutine(OpenCards());
+            }
         }
 
-        cardList = GameManager.Instance.cards.OrderBy(x => x.index).ToList();
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKey(KeyCode.W))
         {
-            isOpening = true;
-            StartCoroutine(OpenCards());
+            GameManager.Instance.Time += 1.0f;
         }
     }
 

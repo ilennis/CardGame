@@ -11,7 +11,6 @@ public class Board : MonoBehaviour
 
 
     public Transform cards;
-    public GameManager gameManager;
     public int[] arr = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9 };
 
     private void Start()
@@ -82,7 +81,7 @@ public class Board : MonoBehaviour
         {
             float elapsedTime = 0f;
             GameObject go = Instantiate(card, this.transform); // 화면 왼쪽 transform.position에서 (-9, 0) 카드 생성
-            gameManager.cards.Add(go.GetComponent<Card>());
+            GameManager.Instance.cards.Add(go.GetComponent<Card>());
 
             float x = (i / 4) * 2.6f - 7.5f; // 사진 사이즈 맞추어서 간격 + 위치 잡아주기 x 축  (로직, 카드 사이즈 + 0.1, 카드 위치)
             float y = (i % 4) * 1.9f - 3.0f; // 사진 사이즈 맞추어서 간격 + 위치 잡아주기 y 축 (로직, 카드 사이즈 + 0.1, 카드 위치)
