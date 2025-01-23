@@ -8,19 +8,7 @@ public class CheatManager : MonoBehaviour
     private List<Card> cardList = new();
 
     private bool isOpening = false;
-    private WaitForSeconds delay = new(0.1f);
-
-    private void Awake() => Initialize();
-
-    private void Initialize()
-    {
-
-    }
-
-    private void Start()
-    {
-
-    }
+    private readonly WaitForSeconds delay = new(0.1f);
 
     private void Update()
     {
