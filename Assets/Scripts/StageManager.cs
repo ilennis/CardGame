@@ -32,8 +32,7 @@ public class StageManager : MonoBehaviour
 
     public void Start()
     {
-        bool a = Isclear();
-        Debug.Log(a);
+
     }
 
     private void Initialize()
@@ -44,7 +43,10 @@ public class StageManager : MonoBehaviour
     //해금 조건을 충족했나 체크
     public void ConditionCheck()
     {
-        clear = Isclear();
+        if (clear != true)
+        {
+            clear = Isclear();
+        } 
         //하드모드를 선택할때 해금이 불가능이라면
         if (clear == false)
         {
@@ -52,6 +54,7 @@ public class StageManager : MonoBehaviour
         }
         else
         {
+
             //하드모드 게임 씬 로드
         }
     }
@@ -65,7 +68,10 @@ public class StageManager : MonoBehaviour
     //이전에 클리어했나 확인
     bool Isclear()
     {
-        bool key = PlayerPrefs.HasKey("easy"); //"easy"에 이지를 클리어했는지를 저장 
-        return key;
+        if (GameManager.Instance.Success >=6)
+        {
+            return true;
+        }
+        return false;
     }
 }
