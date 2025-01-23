@@ -6,7 +6,7 @@ public class Unlock : MonoBehaviour
     public Button OffBtn;
     public GameObject Panel;
 
-    private void Awake()
+    private void OnEnable()
     {
         AudioManager.Instance.Play("SoundFX_Lock");
     }
