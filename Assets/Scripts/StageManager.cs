@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,36 +27,30 @@ public class StageManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(this);
-
-        Initialize();
     }
 
-    public void Start()
-    {
-
-    }
-
-    private void Initialize()
-    {
-
-    }
     public void SelectStage(StageType stage)
     {
-        //하드모드일때
-        if (stage == StageType.Hard)
+        AudioManager.Instance.StopMusic();
+
+        DOVirtual.DelayedCall(1.0f, () =>
         {
-            if (clear == true)
+            //하드모드일때
+            if (stage == StageType.Hard)
+            {
+                if (clear == true)
+                {
+                    CurrentStage = stage;
+                    SceneManager.LoadScene(1);
+                }
+            }
+            //이지모드일 때
+            else
             {
                 CurrentStage = stage;
                 SceneManager.LoadScene(1);
             }
-        }
-        //이지모드일 때
-        else
-        {
-            CurrentStage = stage;
-            SceneManager.LoadScene(1);
-        }
+        });
     }
 
     //이전에 클리어했나 확인

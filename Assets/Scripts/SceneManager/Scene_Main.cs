@@ -12,7 +12,6 @@ public class Scene_Main : Scene_Base
 
     private void Start()
     {
-        AudioManager.Instance.StopMusic();
         AudioManager.Instance.Play("Music_Main");
 
         var parent = MainUI.transform;
