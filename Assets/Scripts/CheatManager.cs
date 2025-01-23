@@ -12,11 +12,22 @@ public class CheatManager : MonoBehaviour
 
     private void Initialize()
     {
-        
+
     }
 
     private void Start()
     {
 
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            foreach (var item in board.CardList)
+            {
+                Debug.Log(item.name);
+            }
+        }
     }
 }
