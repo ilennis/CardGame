@@ -22,35 +22,39 @@ public class Characters : MonoBehaviour
     {
         if(isLeft)
         {
-
-            transform.position = Vector3.left * direction;
-            if (transform.position.x == -8.0f)
+           
+            if (transform.position.x > -8.0f)
             {
-                StageManager.Instance.SelectStage(StageType.Easy);
+                transform.position += Vector3.left * direction;
             }
+            
         }
         if(isRight)
         {
-            transform.position = Vector3.right * direction;
-            if (transform.position.x == 7.6f)
+;   
+            if (transform.position.x < 7.6f)
             {
-                StageManager.Instance.SelectStage(StageType.Hard);
-                
+                transform.position += Vector3.right * direction;
             }
-        }  
+        }
+        
+        
+
     }
     public void OnClick()
     {
         isLeft = true;
         isRight = false;
+
     }
 
-    public void reverseClick()
+    public void ReverseClick()
     {
         isRight = true;
         isLeft = false;
-    }
 
+    }
+    
 }
 
 
