@@ -1355,56 +1355,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137301469}
   m_CullTransparentMesh: 1
---- !u!1 &1161490960
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1161490961}
-  - component: {fileID: 1161490962}
-  m_Layer: 0
-  m_Name: CloudSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1161490961
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1161490960}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 0.6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1654493061}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1161490962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1161490960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cc82b50895c1e1438e22902695afdbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minDelay: 4
-  maxDelay: 8
-  clouds:
-  - {fileID: 4642695001770709336, guid: 5136e35e135842f4b8a6cc76f346d051, type: 3}
-  - {fileID: 880728090970555129, guid: 8dde2246007e76f4bb4bff402b611e13, type: 3}
-  - {fileID: 189351471367922070, guid: 9ee5f7a18ec0e944492b4877caaef8f9, type: 3}
 --- !u!1 &1447804802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,7 +1638,6 @@ Transform:
   m_Children:
   - {fileID: 5382086567310839595}
   - {fileID: 7425499607435806904}
-  - {fileID: 1161490961}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1754001462

@@ -1,9 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 
 
@@ -34,10 +29,10 @@ public class HiddenCharacter : MonoBehaviour
 
     private void Update()
     {
-        if(isGoing)
+        if (isGoing)
         {
             //Debug.Log(this.index + " Go 진입");
-            
+
 
             if (hidden.whoseTurn == 0)
             {
@@ -46,10 +41,10 @@ public class HiddenCharacter : MonoBehaviour
             else
             {
                 Invoke("Go", hidden.speed);
-            }    
+            }
         }
 
-        if(isBack)
+        if (isBack)
         {
             //Debug.Log(this.index + " Back 진입");
             Invoke("Back", hidden.speed);
@@ -67,7 +62,7 @@ public class HiddenCharacter : MonoBehaviour
     {
         if (transform.position.x > -6.0f)
         {
-            transform.position += Vector3.left * 0.02f;
+            transform.position += Vector3.left * 0.05f;
         }
         else
         {
@@ -82,20 +77,24 @@ public class HiddenCharacter : MonoBehaviour
         if (transform.position.x < myPosition.x)
         {
             BubbleOff();
-            transform.position += Vector3.right * 0.02f;
+            transform.position += Vector3.right * 0.05f;
         }
         else
         {
 
-            if (hidden.turnCount >= 5)
+            if (hidden.turnCount == 5)
             {
-                Debug.Log("엔딩!!");
-                Invoke("Ending", 4.0f);
+                Invoke("JumpAll", 2.5f);
+                hidden.turnCount++;
             }
-                
+
+            if (hidden.turnCount >= 6)
+            {
+                Invoke("Ending", 3.5f);
+            }
+
             //Debug.Log(this.index + " Back 나감");
             isBack = false;
-
         }
     }
 
@@ -107,6 +106,12 @@ public class HiddenCharacter : MonoBehaviour
     {
         hidden.bubble.gameObject.SetActive(true);
     }
+
+    private void JumpAll()
+    {
+        transform.parent.GetComponent<MiniCharacters>().Jump();
+    }
+
     private void Ending()
     {
         hidden.stageButton.gameObject.SetActive(true);
