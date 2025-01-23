@@ -13,8 +13,6 @@ public class Button_Start : MonoBehaviour
         GetComponent<Button>().enabled = false;
 
         AudioManager.Instance.Play("SoundFX_Jump");
-        AudioManager.Instance.StopMusic();
-
         DOVirtual.DelayedCall(0.66f, () => AudioManager.Instance.Play("SoundFX_StartButton"));
         DOVirtual.DelayedCall(0.8f, () =>
         {
