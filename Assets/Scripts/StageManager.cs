@@ -43,32 +43,50 @@ public class StageManager : MonoBehaviour
     //해금 조건을 충족했나 체크
     public void ConditionCheck()
     {
+        //깼는지에 대한 기록 갱신
         if (clear != true)
         {
             clear = Isclear();
-        } 
+        }
+
         //하드모드를 선택할때 해금이 불가능이라면
         if (clear == false)
         {
             UnlockPanel.SetActive(true);
-        }
-        else
-        {
-
-            //하드모드 게임 씬 로드
+            UnlockPanel.GetComponent<AudioSource>().Play();
         }
     }
 
     public void SelectStage(StageType stage)
     {
-        CurrentStage = stage;
-        SceneManager.LoadScene(1);
+        //하드모드일 때
+        if (stage == StageType.Hard)
+        {
+            ConditionCheck();
+            if (clear == true)
+            {
+                CurrentStage = stage;
+                SceneManager.LoadScene(1);
+            }
+        }
+        //이지모드일 때
+        else
+        {
+            CurrentStage = stage;
+            SceneManager.LoadScene(1);
+        }
     }
 
     //이전에 클리어했나 확인
     bool Isclear()
     {
-        if (GameManager.Instance.Success >=6)
+        int sucess = 0;
+        if (GameManager.Instance != null)
+        {
+            sucess = GameManager.Instance.Success;
+        }
+        
+        if (sucess >= 6)
         {
             return true;
         }
