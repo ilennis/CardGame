@@ -12,6 +12,11 @@ public class CheatManager : MonoBehaviour
 
     private void Initialize()
     {
+        
+    }
+
+    private void Start()
+    {
 
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static float TIME = 60.0f;
+
     public bool IsEnded { get; set; } = false;
 
     public static GameManager Instance;
@@ -28,7 +30,7 @@ public class GameManager : MonoBehaviour
     public int Attempts = 0;
     public int Success = 0;
 
-    public float Time { get; set; } = 60.0f;
+    public float Time { get; set; } = TIME;
 
     public List<Card> cards = new List<Card>();
 
@@ -50,6 +52,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (IsEnded)
+        {
+            return;
+        }
+
+        if (timeTxt == null)
         {
             return;
         }
